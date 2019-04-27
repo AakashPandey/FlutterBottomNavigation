@@ -42,6 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
     if (i == pg) {
       return;
     }
+    
+    if (pgStack.contains(i) && pgStack.length!=1) {
+      pgStack.remove(i);
+    }
+    
     if (!pgStack.contains(pg)) {
       pgStack.add(pg);
     }
