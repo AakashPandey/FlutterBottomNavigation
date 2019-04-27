@@ -42,15 +42,6 @@ class _MyHomePageState extends State<MyHomePage> {
     if (i == pg) {
       return;
     }
-
-    if (i == pgStack[0]) {
-      pg = i;
-    }
-    
-    if(pgStack.contains(i)) {
-      pgStack.remove(i);
-    }
-
     if (!pgStack.contains(pg)) {
       pgStack.add(pg);
     }
@@ -59,20 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
       pg = i;
     });
 
-    print(pgStack.toString());
-  }
-
-  Future<bool> pgPop(BuildContext context) {
-    print("called " + pgStack.toString());
-    if (pgStack.isEmpty) {
-      print("App terminated!");
-      return Future<bool>.value(true);
-    } else {
-      int t = pgStack.removeLast();
-      setState(() {
-        pg = (pg!=t) ? t : pgStack.removeLast(); 
-      });
-    }
     print(pgStack.toString());
   }
 
