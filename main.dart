@@ -57,6 +57,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
     print(pgStack.toString());
   }
+  
+  Future<bool> pgPop(BuildContext context) {
+    print("called " + pgStack.toString());
+    if (pgStack.isEmpty) {
+      print("App terminated!");
+      return Future<bool>.value(true);
+    } else {
+      int t = pgStack.removeLast();
+      // key.currentState(() {
+        key.currentState.pg = (pg != t) ? t : pgStack.removeLast();
+      // });
+    }
+    print("end: " + pgStack.toString());
+  }
 
   @override
   Widget build(BuildContext context) {
